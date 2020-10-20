@@ -1,4 +1,60 @@
 // Your code below.
+const makeDino = function(species, period, carnivore, extinct){
+  const newDino = {
+    species: species,
+    period: period,
+    carnivore: carnivore,
+    extinct: extinct,
+  }
+  if(newDino.extinct == undefined){
+    newDino.extinct = false;
+  }
+  return newDino;
+}
+
+const makeExtinct = function(makeDin){
+  const newDino = makeDino(makeDin.species, makeDin.period, makeDin.carnivore);
+  newDino.extinct = true;
+  return newDino;
+}
+
+const truncateSpecies = function(dino){
+  const newTrunc = makeDino(dino.species, dino.period, dino.carnivore, dino.extinct)
+  if(dino.extinct <= 10){
+    return dino;
+  } 
+  if(dino.extinct > 10) {
+    return dino.extinct.slice(0,7)
+  }
+  return newTrunc;
+}
+
+const makeSingular = function(dinosaur){
+  const newTrunc = makeDino(dinosaur.species, dinosaur.period, dinosaur.carnivore, dinosaur.extinct)
+  let dinoSpecie = dinosaur.species;
+  if(dinoSpecie.endsWith('us') === true){
+    return newTrunc.species.slice(-2);
+  }
+  
+  return newTrunc
+}
+
+
+// const truncateSpecies = function(dino){
+//   const newTrunc = {
+//     species: dino.species,
+//     period: dino.period,
+//     carnivore: dino.carnivore,
+//     extinct: dino.extinct,
+//   }
+//   if(dino.extinct <= 10){
+//     return dino;
+//   } else if(dino.extinct > 10) {
+//     return dino.extinct.slice(0,7)
+//   }
+//   return newTrunc;
+// }
+
 
 
 
