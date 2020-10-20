@@ -20,11 +20,11 @@ const makeExtinct = function(makeDin){
 
 const truncateSpecies = function(dino){
   const newTrunc = makeDino(dino.species, dino.period, dino.carnivore, dino.extinct)
-  if(dino.extinct <= 10){
-    return dino;
+  if(dino.extinct.length <= 10){
+    dino.extinct;
   } 
-  if(dino.extinct > 10) {
-    return dino.extinct.slice(0,7)
+  if(dino.extinct.length > 10) {
+    dino.extinct.slice(0,7)
   }
   return newTrunc;
 }
@@ -33,7 +33,7 @@ const makeSingular = function(dinosaur){
   const newTrunc = makeDino(dinosaur.species, dinosaur.period, dinosaur.carnivore, dinosaur.extinct)
   let dinoSpecie = dinosaur.species;
   if(dinoSpecie.endsWith('us') === true){
-    return newTrunc.species.slice(-2);
+    newTrunc.species = dinoSpecie.slice(0, dinoSpecie.indexOf('us'));
   }
   
   return newTrunc
