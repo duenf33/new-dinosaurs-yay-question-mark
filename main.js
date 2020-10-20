@@ -20,11 +20,11 @@ const makeExtinct = function(makeDin){
 
 const truncateSpecies = function(dino){
   const newTrunc = makeDino(dino.species, dino.period, dino.carnivore, dino.extinct)
-  if(dino.extinct.length <= 10){
+  if(dino.species.length <= 10){
     dino.extinct;
   } 
-  if(dino.extinct.length > 10) {
-    dino.extinct.slice(0,7)
+  if(dino.species.length > 10) {
+    newTrunc.species = dino.species.slice(0,7)
   }
   return newTrunc;
 }
